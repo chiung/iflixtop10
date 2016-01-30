@@ -33,6 +33,9 @@ top10imdb$Runtime[2]<-"98 min"
 top10imdb$Director[2]<-"Chris Sanders"
 top10imdb$Metascore[2]<-"74"
 top10imdb[,15] <- sapply(top10imdb[, 15], as.numeric)
+avg_imdbVotes <- mean(top10imdb$imdbVotes)
+avg_Metascore <- mean(top10imdb$Metascore)
+avg_imdbRating <- mean(top10imdb$imdbRating)
 qplot(Title, weight = imdbRating, data =top10imdb, geom = "bar", ylab = "imdb Rating")
 qplot(Title, weight = Metascore, data =top10imdb, geom = "bar", ylab = "imdb Rating")
 qplot(Title, weight = imdbVotes, data =top10imdb, geom = "bar", ylab = "imdb Rating")

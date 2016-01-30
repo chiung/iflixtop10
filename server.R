@@ -37,4 +37,28 @@ shinyServer(function(input, output) {
   output$instructions <- renderText({  
     readLines("instructions.html")  
   })
+  
+  imdbVotestxt <- eventReactive(input$imdbVotes, {
+    mean(top10imdb$imdbVotes)
+  })
+  
+  output$imdbVotesText <- renderText({
+    imdbVotestxt()
+  })
+  
+  Metascoretxt <- eventReactive(input$Metascore, {
+    mean(top10imdb$Metascore)
+  })
+  
+  output$MetascoreText <- renderText({
+    Metascoretxt()
+  })
+  
+  imdbRatingtxt <- eventReactive(input$imdbRating, {
+    mean(top10imdb$imdbRating)
+  })
+  
+  output$imdbRatingText <- renderText({
+    imdbRatingtxt()
+  })
 })
